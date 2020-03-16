@@ -3,6 +3,15 @@ from collections import defaultdict, namedtuple
 from pprint import pprint
 from string import Template
 import json
+import re
+
+try:
+    import markdown2
+except ImportError:
+    class markdown2:
+        @staticmethod
+        def markdown(in_text):
+            return in_text
 
 CheckInfo = namedtuple('CheckInfo', 'check_item, requirements_title, requirements_type')
 
@@ -13,6 +22,13 @@ PRIMARY_AND_ADDITIONAL_REQUIREMENTS_LIST = (
 
 CRITERIA_LIST_JS_TEMPLATE = Template("""export const GOOD_TOTAL_POINTS = $max_total_points;
 export const criteria = $json_dict;""")
+
+URL_REGEX = r"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
+
+
+def make_html_link(text):
+    result = re.sub(URL_REGEX, r'<a href="\1" target="_blank">\1</a>', text, flags=re.MULTILINE)
+    return result
 
 
 def get_first_match(in_str, check_and_return_list):
@@ -42,7 +58,7 @@ def main():
             mod = int(mod.split(' ', 1)[0])
             vals = {
                 'id': id_counter,
-                'text': text,
+                'text': make_html_link(text),
                 'mod': mod,
                 'i': '',
             }
@@ -61,7 +77,7 @@ def main():
     with open('./criteria-list.js', 'w') as f:
 
         f.write(file_content)
-    pprint(requirements)
+    # print(file_content)
 
 
 if __name__ == '__main__':

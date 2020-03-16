@@ -6,7 +6,7 @@ export const criteria = [
   },
   {
     "id": 1,
-    "text": "Скопировать себе рабочую тетрадь и назвать как ФИО_выбранный курс http://tiny.cc/w6ldlz ?",
+    "text": "Скопировать себе рабочую тетрадь и назвать как ФИО_выбранный курс <a href=\"http://tiny.cc/w6ldlz\" target=\"_blank\">http://tiny.cc/w6ldlz</a> ?",
     "mod": 1,
     "i": ""
   },
@@ -46,25 +46,25 @@ export const criteria = [
   },
   {
     "id": 8,
-    "text": "Заполнен отзыв на вебинар в записи http://tiny.cc/00ldlz ?",
+    "text": "Заполнен отзыв на вебинар в записи <a href=\"http://tiny.cc/00ldlz\" target=\"_blank\">http://tiny.cc/00ldlz</a> ?",
     "mod": 1,
     "i": ""
   },
   {
     "id": 9,
-    "text": "Пройден тест по документу RoadMap по OTUS для кандидата в преподаватели http://tiny.cc/osldlz ?",
+    "text": "Пройден тест по документу RoadMap по OTUS для кандидата в преподаватели <a href=\"http://tiny.cc/osldlz\" target=\"_blank\">http://tiny.cc/osldlz</a> ?",
     "mod": 1,
     "i": ""
   },
   {
     "id": 10,
-    "text": "Пройден тест по документу \"Как будем взаимодействовать на курсе 'Онлайн преподаватель' и 'Практика преподавания'\" http://tiny.cc/zwldlz ?",
+    "text": "Пройден тест по документу \"Как будем взаимодействовать на курсе 'Онлайн-преподаватель' и 'Практика преподавания'\" <a href=\"http://tiny.cc/zwldlz\" target=\"_blank\">http://tiny.cc/zwldlz</a> ?",
     "mod": 1,
     "i": ""
   },
   {
     "id": 11,
-    "text": "Прочитаны конспекты к занятию 2 про обратную связь http://tiny.cc/61mdlz ?",
+    "text": "Прочитаны конспекты к занятию 2 про обратную связь <a href=\"http://tiny.cc/61mdlz\" target=\"_blank\">http://tiny.cc/61mdlz</a> ?",
     "mod": 1,
     "i": ""
   }
