@@ -8,6 +8,12 @@
 
 ## Генерация чеклиста по готовому списку критериев
 
+Предварительные приготовления:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
 Пример содержимого `criteria_list.md`
 
 ```markdown
