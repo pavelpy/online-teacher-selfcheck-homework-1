@@ -51,7 +51,6 @@ def main():
             requirements_title, requirements_type = first_match
             vals = {'type': "title", 'title': requirements_title}
             requirements.append(vals)
-            id_counter += 1
         elif line.startswith('* '):
             line = line[2:]
             text, mod = line.rsplit(' (', 1)
