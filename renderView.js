@@ -133,18 +133,14 @@ export function render(criteria) {
     header.appendChild(close);
     let list = [];
 
-    if (filteredCriteria[0].checked) {
-      list[0] = filteredCriteria[0];
-    } else {
-      list = filteredCriteria.filter(item => item.checked === true);
-    }
+    list = filteredCriteria.filter(item => item.checked === true);
 
     if (total === GOOD_TOTAL_POINTS) {
       info.innerHTML += '<p>' + (total === GOOD_TOTAL_POINTS ? congrats : '') + `</p><p class="congrats" style="text-align: center">У вас нет ни одной ошибки! Ваша оценка ${total}. Поздравляю</p>`;
       toClipBoard = `У вас нет ни одной ошибки! Ваша оценка ${total}. Поздравляю`;
     } else if (list.length) {
       let points = total % 10 >= 1 && total % 10 <= 4 ? "балла" : "баллов";
-      content.innerHTML += `<p><strong>Ваша оценка - ${total >= 0 ? total : 0} ${points}</strong> \r\n</p><p>Отзыв по пунктам ТЗ:\r\n</p>`;
+      content.innerHTML += `<p><strong>Ваша оценка - ${total >= 0 ? total : 0} ${points}</strong> \r\n</p><p>Отзыв по пунктам ДЗ:\r\n</p>`;
       list.map((item, i) => {
         let strNum = item.mod + '';
         let points = strNum[strNum.length - 1] > 1 && strNum[strNum.length - 1] <= 4 ? "балла" : "баллов";
