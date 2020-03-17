@@ -157,7 +157,7 @@ export function render(criteria) {
       list.map((item, i) => {
         let strNum = item.mod + '';
         let points = getPointAppend(strNum[strNum.length - 1]);
-        content.innerHTML += `<p>${i + 1}) ${item.text}: + ${strNum} ${points} \r\n</p>`;
+        content.innerHTML += `<p>${i + 1}) ${item.text}</p><p style="color:green"> + ${strNum} ${points} \r\n</p>`;
       });
       toClipBoard = content.innerText;
 
