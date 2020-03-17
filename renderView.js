@@ -112,6 +112,18 @@ export function render(criteria) {
     renderList.push(parentDiv);
   }
 
+  function getPointAppend(number) {
+    let points;
+    if (number == 1) {
+      points = "балл";
+    } else if (number > 1 && number < 5) {
+      points = "балла";
+    } else {
+      points = "баллов";
+    }
+    return points;
+  }
+
   function getFeedback(filteredCriteria) {
     info.innerHTML = '<div class="copy"><a href="#" onclick="copyToClipboard(event);">Скопировать в буфер</a></div>';
     const congrats = "<img class='congrats' src='images/congrats.png' width='150' height='150' alt='Congratulations'>";
@@ -139,11 +151,12 @@ export function render(criteria) {
       info.innerHTML += '<p>' + (total === GOOD_TOTAL_POINTS ? congrats : '') + `</p><p class="congrats" style="text-align: center">У вас нет ни одной ошибки! Ваша оценка ${total}. Поздравляю</p>`;
       toClipBoard = `У вас нет ни одной ошибки! Ваша оценка ${total}. Поздравляю`;
     } else if (list.length) {
-      let points = total % 10 >= 1 && total % 10 <= 4 ? "балла" : "баллов";
+      let points;
+      points = getPointAppend(total)
       content.innerHTML += `<p><strong>Ваша оценка - ${total >= 0 ? total : 0} ${points}</strong> \r\n</p><p>Отзыв по пунктам ДЗ:\r\n</p>`;
       list.map((item, i) => {
         let strNum = item.mod + '';
-        let points = strNum[strNum.length - 1] > 1 && strNum[strNum.length - 1] <= 4 ? "балла" : "баллов";
+        let points = getPointAppend(strNum[strNum.length - 1]);
         content.innerHTML += `<p>${i + 1}) ${item.text}: плюс ${strNum} ${points} \r\n</p>`;
       });
       toClipBoard = content.innerText;
