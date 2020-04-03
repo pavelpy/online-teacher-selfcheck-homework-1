@@ -42,7 +42,7 @@ python3 generate_criteria_list.py
 
 ## TODO
 
-* [ ] Сохранение прогресса после перезагрузки страницы.
+* [ ] Сохранение прогресса после перезагрузки страницы \([help link](https://blog.bitsrc.io/localstorage-sessionstorage-the-web-storage-of-the-web-6b7ca51c8b2a)\).
 
 ## Copyright
 
