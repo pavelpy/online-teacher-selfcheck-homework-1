@@ -6,7 +6,7 @@ export const criteria = [
   },
   {
     "id": 0,
-    "text": "Скопирована рабочая тетрадь и названа как ФИО_выбранный курс <a href=\"http://tiny.cc/rvlmnz\" target=\"_blank\">http://tiny.cc/rvlmnz</a> ?",
+    "text": "Скопирована себе рабочая тетрадь и названа как ФИО_выбранный курс <a href=\"http://tiny.cc/exercise_book\" target=\"_blank\">http://tiny.cc/exercise_book</a> ?",
     "mod": 1,
     "i": ""
   },
@@ -34,7 +34,7 @@ export const criteria = [
   },
   {
     "id": 4,
-    "text": "В рабочую тетрадь вписаны хотя бы один ресурс (паблик/группа и т.д.) по вашему направлению?",
+    "text": "В рабочую тетрадь вписан хотя бы один ресурс (паблик/группа и т.д.) по вашему направлению?",
     "mod": 1,
     "i": ""
   },
@@ -52,19 +52,19 @@ export const criteria = [
   },
   {
     "id": 7,
-    "text": "Пройден тест по документу RoadMap по OTUS для кандидата в преподаватели <a href=\"http://tiny.cc/osldlz\" target=\"_blank\">http://tiny.cc/osldlz</a> ?",
+    "text": "Вписаны результаты теста по документу RoadMap по OTUS для кандидата в преподаватели <a href=\"http://tiny.cc/osldlz\" target=\"_blank\">http://tiny.cc/osldlz</a> ?",
     "mod": 1,
     "i": ""
   },
   {
     "id": 8,
-    "text": "Пройден тест по документу \"Как будем взаимодействовать на курсе 'Онлайн преподаватель' и 'Практика преподавания'\" <a href=\"http://tiny.cc/zwldlz\" target=\"_blank\">http://tiny.cc/zwldlz</a> ?",
+    "text": "Вписаны результаты теста по документу \"Как будем взаимодействовать на курсе 'Онлайн преподаватель' и 'Практика преподавания'\" <a href=\"http://tiny.cc/zwldlz\" target=\"_blank\">http://tiny.cc/zwldlz</a> ?",
     "mod": 1,
     "i": ""
   },
   {
     "id": 9,
-    "text": "Прочитаны конспекты к занятию 2 про обратную связь <a href=\"http://tiny.cc/61mdlz\" target=\"_blank\">http://tiny.cc/61mdlz</a> ?",
+    "text": "Стоит отметка о прочтении конспектов к следующему занятию <a href=\"http://tiny.cc/exercise_book\" target=\"_blank\">http://tiny.cc/exercise_book</a> ?",
     "mod": 1,
     "i": ""
   }
