@@ -16,14 +16,16 @@ except ImportError:
 CheckInfo = namedtuple('CheckInfo', 'check_item, requirements_title, requirements_type')
 
 PRIMARY_AND_ADDITIONAL_REQUIREMENTS_LIST = (
-    CheckInfo('#### Основные требования', 'Основные требования', 'main'),
-    CheckInfo('#### Дополнительные требования', 'Дополнительные требования', ''),
+    CheckInfo('#### Основные:', 'Основные требования', 'main'),
+    CheckInfo('#### Дополнительные:', 'Дополнительные требования', ''),
 )
 
 CRITERIA_LIST_JS_TEMPLATE = Template("""export const GOOD_TOTAL_POINTS = $max_total_points;
 export const criteria = $json_dict;""")
 
 URL_REGEX = r"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
+
+LIST_PREFIX = '+ 1 балл - '
 
 
 def make_html_link(text):
@@ -51,10 +53,9 @@ def main():
             requirements_title, requirements_type = first_match
             vals = {'type': "title", 'title': requirements_title}
             requirements.append(vals)
-        elif line.startswith('* '):
-            line = line[2:]
-            text, mod = line.rsplit(' (', 1)
-            mod = int(mod.split(' ', 1)[0])
+        elif line.startswith(LIST_PREFIX):
+            line = line.split(LIST_PREFIX, 1)[-1]
+            text, mod = line[0].capitalize()+line[1:], 1
             vals = {
                 'id': id_counter,
                 'text': make_html_link(text),
