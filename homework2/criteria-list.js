@@ -12,7 +12,7 @@ export const criteria = [
   },
   {
     "id": 1,
-    "text": "Дана обратная связь на дз студента <a href=\"http://tiny.cc/8ubnpz\" target=\"_blank\">http://tiny.cc/8ubnpz</a> и/или живой вебинар",
+    "text": "Дана обратная связь на дз студента <a href=\"http://tiny.cc/8ubnpz\" target=\"_blank\">http://tiny.cc/8ubnpz</a> и живой вебинар",
     "mod": 1,
     "i": ""
   },
