@@ -125,7 +125,7 @@ export function render(criteria) {
   }
 
   function getFeedback(filteredCriteria) {
-    info.innerHTML = '<div class="copy"><a href="#" onclick="copyToClipboard(event);">Скопировать в буфер</a></div>';
+    info.innerHTML = '<div class="copy"><a href="#" style="display: none" onclick="copyToClipboard(event);">Скопировать в буфер</a></div>';
     const congrats = "<img class='congrats' src='images/congrats.png' width='150' height='150' alt='Congratulations'>";
     const ups = "<img class='sorry' src='images/sorry.png' width='150' height='150' alt='We are sorry'>";
 
@@ -157,7 +157,7 @@ export function render(criteria) {
       list.map((item, i) => {
         let strNum = item.mod + '';
         let points = getPointAppend(strNum[strNum.length - 1]);
-        content.innerHTML += `<p>${i + 1}) ${item.text}</p><p style="color:green"> + ${strNum} ${points} \r\n</p>`;
+        content.innerHTML += `<p>${i + 1}) ${item.text}</p><p style="color:green; display: none"> + ${strNum} ${points} \r\n</p>`;
       });
       toClipBoard = content.innerText;
 
