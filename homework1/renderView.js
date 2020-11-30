@@ -153,7 +153,7 @@ export function render(criteria) {
     } else if (list.length) {
       let points;
       points = getPointAppend(total)
-      content.innerHTML += `<p><strong>Ваша оценка - ${total >= 0 ? total : 0} ${points}</strong> \r\n</p><p>Отзыв по пунктам ДЗ:\r\n</p>`;
+      content.innerHTML += `<p style="display: none"><strong>Ваша оценка - ${total >= 0 ? total : 0} ${points}</strong> \r\n</p><p>Отзыв по пунктам ДЗ:\r\n</p>`;
       list.map((item, i) => {
         let strNum = item.mod + '';
         let points = getPointAppend(strNum[strNum.length - 1]);
