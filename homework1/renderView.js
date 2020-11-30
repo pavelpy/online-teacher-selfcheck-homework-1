@@ -148,8 +148,8 @@ export function render(criteria) {
     list = filteredCriteria.filter(item => item.checked === true);
 
     if (total === GOOD_TOTAL_POINTS) {
-      info.innerHTML += '<p>' + (total === GOOD_TOTAL_POINTS ? congrats : '') + `</p><p class="congrats" style="text-align: center">У вас нет ни одной ошибки! Ваша оценка ${total}. Поздравляю</p>`;
-      toClipBoard = `У вас нет ни одной ошибки! Ваша оценка ${total}. Поздравляю`;
+      info.innerHTML += '<p>' + (total === GOOD_TOTAL_POINTS ? congrats : '') + `</p><p class="congrats" style="text-align: center">Вы выполнили все пункты! Поздравляю</p>`;
+      toClipBoard = `Вы выполнили все пункты! Поздравляю`;
     } else if (list.length) {
       let points;
       points = getPointAppend(total)
