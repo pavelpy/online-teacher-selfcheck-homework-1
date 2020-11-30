@@ -1,4 +1,4 @@
-import {GOOD_TOTAL_POINTS} from "./criteria-list.js";
+import {GOOD_TOTAL_POINTS, MINIMAL_TOTAL_POINTS} from "./criteria-list.js";
 const START_TOTAL_POINTS = 0;
 
 export function render(criteria) {
@@ -153,7 +153,15 @@ export function render(criteria) {
     } else if (list.length) {
       let points;
       points = getPointAppend(total)
-      content.innerHTML += `<p style="display: none"><strong>Ваша оценка - ${total >= 0 ? total : 0} ${points}</strong> \r\n</p><p>Отзыв по пунктам ДЗ:\r\n</p>`;
+
+      let acceptStatus;
+      if (total >= MINIMAL_TOTAL_POINTS) {
+        acceptStatus = '<span style="color:green">ПРИНЯТО</span>';
+      } else {
+        acceptStatus = 'НЕ ПРИНЯТО';
+      }
+
+      content.innerHTML += `<p><strong>Ваша оценка - ${acceptStatus}</strong> \r\n</p><p>Отзыв по пунктам ДЗ:\r\n</p>`;
       list.map((item, i) => {
         let strNum = item.mod + '';
         let points = getPointAppend(strNum[strNum.length - 1]);

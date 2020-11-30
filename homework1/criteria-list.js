@@ -1,4 +1,5 @@
-export const GOOD_TOTAL_POINTS = 10;
+export const GOOD_TOTAL_POINTS = 46;
+export const MINIMAL_TOTAL_POINTS = 40;
 export const criteria = [
   {
     "type": "title",
@@ -7,25 +8,25 @@ export const criteria = [
   {
     "id": 0,
     "text": "Скопирована себе рабочая тетрадь и названа как ФИО_выбранный курс <a href=\"http://tiny.cc/exercise_book\" target=\"_blank\">http://tiny.cc/exercise_book</a>",
-    "mod": 1,
+    "mod": 10,
     "i": ""
   },
   {
     "id": 1,
     "text": "Вписана тема для 15-минутного демо-занятия в рабочую тетрадь",
-    "mod": 1,
+    "mod": 10,
     "i": ""
   },
   {
     "id": 2,
     "text": "Вписана тема для 30-минутного демо-занятия в рабочую тетрадь",
-    "mod": 1,
+    "mod": 10,
     "i": ""
   },
   {
     "id": 3,
     "text": "Вписана тема для второго 30-минутного демо-занятия в рабочую тетрадь",
-    "mod": 1,
+    "mod": 10,
     "i": ""
   },
   {

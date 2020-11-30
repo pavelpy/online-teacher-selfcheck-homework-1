@@ -21,6 +21,7 @@ PRIMARY_AND_ADDITIONAL_REQUIREMENTS_LIST = (
 )
 
 CRITERIA_LIST_JS_TEMPLATE = Template("""export const GOOD_TOTAL_POINTS = $max_total_points;
+export const MINIMAL_TOTAL_POINTS = 40;
 export const criteria = $json_dict;""")
 
 URL_REGEX = r"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
