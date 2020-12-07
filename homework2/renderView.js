@@ -1,4 +1,4 @@
-import {GOOD_TOTAL_POINTS} from "./criteria-list.js";
+import {GOOD_TOTAL_POINTS, MINIMAL_TOTAL_POINTS} from "./criteria-list.js";
 const START_TOTAL_POINTS = 0;
 
 export function render(criteria) {
@@ -125,7 +125,7 @@ export function render(criteria) {
   }
 
   function getFeedback(filteredCriteria) {
-    info.innerHTML = '<div class="copy"><a href="#" onclick="copyToClipboard(event);">Скопировать в буфер</a></div>';
+    info.innerHTML = '<div class="copy"><a href="#" style="display: none" onclick="copyToClipboard(event);">Скопировать в буфер</a></div>';
     const congrats = "<img class='congrats' src='images/congrats.png' width='150' height='150' alt='Congratulations'>";
     const ups = "<img class='sorry' src='images/sorry.png' width='150' height='150' alt='We are sorry'>";
 
@@ -148,16 +148,24 @@ export function render(criteria) {
     list = filteredCriteria.filter(item => item.checked === true);
 
     if (total === GOOD_TOTAL_POINTS) {
-      info.innerHTML += '<p>' + (total === GOOD_TOTAL_POINTS ? congrats : '') + `</p><p class="congrats" style="text-align: center">У вас нет ни одной ошибки! Ваша оценка ${total}. Поздравляю</p>`;
-      toClipBoard = `У вас нет ни одной ошибки! Ваша оценка ${total}. Поздравляю`;
+      info.innerHTML += '<p>' + (total === GOOD_TOTAL_POINTS ? congrats : '') + `</p><p class="congrats" style="text-align: center">Вы выполнили все пункты! Поздравляю</p>`;
+      toClipBoard = `Вы выполнили все пункты! Поздравляю`;
     } else if (list.length) {
       let points;
       points = getPointAppend(total)
-      content.innerHTML += `<p><strong>Ваша оценка - ${total >= 0 ? total : 0} ${points}</strong> \r\n</p><p>Отзыв по пунктам ДЗ:\r\n</p>`;
+
+      let acceptStatus;
+      if (total >= MINIMAL_TOTAL_POINTS) {
+        acceptStatus = '<span style="color:green">ПРИНЯТО</span>';
+      } else {
+        acceptStatus = 'НЕ ПРИНЯТО';
+      }
+
+      content.innerHTML += `<p><strong>Ваша оценка - ${acceptStatus}</strong> \r\n</p><p>Отзыв по пунктам ДЗ:\r\n</p>`;
       list.map((item, i) => {
         let strNum = item.mod + '';
         let points = getPointAppend(strNum[strNum.length - 1]);
-        content.innerHTML += `<p>${i + 1}) ${item.text}</p><p style="color:green"> + ${strNum} ${points} \r\n</p>`;
+        content.innerHTML += `<p>${i + 1}) ${item.text}</p><p style="color:green; display: none"> + ${strNum} ${points} \r\n</p>`;
       });
       toClipBoard = content.innerText;
 

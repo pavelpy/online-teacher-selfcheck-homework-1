@@ -65,6 +65,7 @@ header {
 
 .score-board {
   font-size: 28px;
+  display: none;
 }
 
 .prepare {

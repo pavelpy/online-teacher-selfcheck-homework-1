@@ -39,6 +39,14 @@ def get_first_match(in_str, check_and_return_list):
     return None
 
 
+def try_int(str_, default=0):
+    try:
+        result = int(str_)
+    except Exception:
+        result = default
+    return result
+
+
 def main():
     # TODO: поменять split на regex для ухудшения читаемости?) <Pavel 2020-03-16>
     file_content = open('./criteria_list.md').read()
@@ -54,8 +62,12 @@ def main():
             requirements.append(vals)
         elif line.startswith('* '):
             line = line[2:]
-            text, mod = line.rsplit(' (', 1)
-            mod = int(mod.split(' ', 1)[0])
+            if '(' in line:
+                text, mod = line.rsplit(' (', 1)
+                mod = try_int(mod.split(' ', 1)[0], default=1)
+            else:
+                text = line
+                mod = 1
             vals = {
                 'id': id_counter,
                 'text': make_html_link(text),

@@ -16,16 +16,15 @@ except ImportError:
 CheckInfo = namedtuple('CheckInfo', 'check_item, requirements_title, requirements_type')
 
 PRIMARY_AND_ADDITIONAL_REQUIREMENTS_LIST = (
-    CheckInfo('#### Основные:', 'Основные требования', 'main'),
-    CheckInfo('#### Дополнительные:', 'Дополнительные требования', ''),
+    CheckInfo('#### Основные требования', 'Основные требования', 'main'),
+    CheckInfo('#### Дополнительные требования', 'Дополнительные требования', ''),
 )
 
 CRITERIA_LIST_JS_TEMPLATE = Template("""export const GOOD_TOTAL_POINTS = $max_total_points;
+export const MINIMAL_TOTAL_POINTS = 40;
 export const criteria = $json_dict;""")
 
 URL_REGEX = r"(http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*(),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+)"
-
-LIST_PREFIX = '+ 1 балл - '
 
 
 def make_html_link(text):
@@ -38,6 +37,14 @@ def get_first_match(in_str, check_and_return_list):
         if in_str.startswith(check_item):
             return (requirements_title, requirements_type)
     return None
+
+
+def try_int(str_, default=0):
+    try:
+        result = int(str_)
+    except Exception:
+        result = default
+    return result
 
 
 def main():
@@ -53,9 +60,14 @@ def main():
             requirements_title, requirements_type = first_match
             vals = {'type': "title", 'title': requirements_title}
             requirements.append(vals)
-        elif line.startswith(LIST_PREFIX):
-            line = line.split(LIST_PREFIX, 1)[-1]
-            text, mod = line.capitalize(), 1
+        elif line.startswith('* '):
+            line = line[2:]
+            if '(' in line:
+                text, mod = line.rsplit(' (', 1)
+                mod = try_int(mod.split(' ', 1)[0], default=1)
+            else:
+                text = line
+                mod = 1
             vals = {
                 'id': id_counter,
                 'text': make_html_link(text),
